@@ -19,7 +19,10 @@
  *
  ******************************************************************************/
 
-
+#ifndef UINT_DEFINED
+#define UINT_DEFINED
+typedef unsigned int uint;
+#endif
 
 
 #ifndef VECTOR_HELPERS_H

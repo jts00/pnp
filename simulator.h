@@ -1,6 +1,12 @@
 #pragma once
 #include <utils/cvl/pose.h>
 #include <utils/random.h>
+
+#ifndef UINT_DEFINED
+#define UINT_DEFINED
+typedef unsigned int uint;
+#endif
+
 namespace cvl{
 /// Uniform distribution on the unit sphere
 template<class T,int R> cvl::Vector<T,R> getRandomUnitVector(){

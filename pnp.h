@@ -24,6 +24,10 @@
 
 #include "utils/cvl/pose.h"
 
+#ifndef UINT_DEFINED
+#define UINT_DEFINED
+typedef unsigned int uint;
+#endif
 
 namespace cvl{
 

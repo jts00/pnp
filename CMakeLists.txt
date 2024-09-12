@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 3.16)
+#set(CMAKE_TOOLCHAIN_FILE "C:/Users/benel/Documents/VpsRepositories/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
+include("C:/Users/benel/Documents/VpsRepositories/vcpkg/scripts/buildsystems/vcpkg.cmake")
+
 project(lambdatwist-pnp CXX) # defines ${CMAKE_PROJECT_NAME}(top level) PROJECT_NAME(most recent)
 
 message("================================================================================")
 message("Builing pnp")
 message("Recommended optimization flags for release:  -O3 -march=native -mtune=native -DNDEBUG")
-
-
 
 
 # Build configuration
@@ -28,10 +29,10 @@ BuildConfig()
 # note, ceres 1.4 works just fine too, but there is a bug in the cmakelists of ceres 1.4 which
 # can cause eigen3 lookup failures.
 message(" Ceres 1.4 works just fine too, but there are cmake errors in them which may cause eigen3 to not be found. In that case add it manually, but be careful, as if ceres is built with one version of eigen, and then used in combination with another, this will cause segfaults inside ceres due to the idiotic ideas around aligned allocators,(just dont use them is the solution ceres and eigen does not appear to get)")
-find_package(Ceres 2 REQUIRED )
+find_package(Ceres 2 REQUIRED)
 
 add_library(libpnp utils/mlibtime.cpp pnp_ransac.cpp p4p.cpp)
-target_link_libraries(libpnp PRIVATE ceres)
+target_link_libraries(libpnp PRIVATE Ceres::ceres)
 
 
 

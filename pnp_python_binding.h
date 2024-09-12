@@ -5,7 +5,10 @@
 #include <pybind11/numpy.h>
 #include <pybind11/stl.h>
 
-
+#ifndef UINT_DEFINED
+#define UINT_DEFINED
+typedef unsigned int uint;
+#endif
 
 // no namespace for simplifying pybindings
 
