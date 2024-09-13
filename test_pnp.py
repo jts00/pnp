@@ -1,5 +1,5 @@
 import numpy as np
-import build.pnp_python_binding
+import build.Debug.pnp_python_binding
 
 
 xs = np.array([[-17.8431, 0.570044, 11.1874],[-80.6362, -23.8517, 21.0087],[-68.0126, 9.19776, 20.6913],[-8.31825, -13.5394, 23.8776],[-32.3177, 30.9775, 35.0005],[-60.5264, 3.64722, 62.0491],[-13.8288, -0.638686, 30.1851],[-25.1182, 35.7954, 81.3263],[0.841874, -20.8397, 42.3626],[-2.04336, 0.61477, 0.620302]])
@@ -11,7 +11,7 @@ pose = np.array([[0.621007, 0.253154, 0.741798, 0.947568 ],
 
 
 
-res = build.pnp_python_binding.pnp(xs, ys)
+res = build.Debug.pnp_python_binding.pnp(xs, ys)
 print("estimate: "+str(res))
 print("gt: " +str(pose))
 print("diff:\n" + str(res-pose))
